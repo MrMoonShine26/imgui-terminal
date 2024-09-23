@@ -30,10 +30,10 @@ Terminal::draw(const char *str_id, bool *p_open)
     bool blink = (m_blinkPhase < m_blinkPeriod/2);
 
     //! @todo capture
-    CaptureKeyboardFromApp();
+    // CaptureKeyboardFromApp();
 
-    for (int i=0; i < sizeof(io.InputCharacters)/sizeof(ImWchar); i++) {
-        ImWchar c = io.InputCharacters[i];
+    for (int i=0; i < sizeof(io.InputQueueCharacters)/sizeof(ImWchar); i++) {
+        ImWchar c = io.InputQueueCharacters[i];
         if (!c)
             break;
         output(c);
